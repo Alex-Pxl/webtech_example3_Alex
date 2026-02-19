@@ -1,0 +1,365 @@
+#include <stdio.h>
+#include <stdint.h>
+#include <windows.h>
+/***************************************************************
+ * HELPER: voor vloeiende, stabiele beep-tonen
+ * 
+ ***************************************************************/
+void Beep_met_pauze(int freq, int duur)
+{
+    Beep(freq, duur);
+    Sleep(12);   // mini-pauze zodat Windows de toon niet afkapt
+}
+
+// ------------------------------------------------------------
+//  PLACEHOLDER BEEP FUNCTIONS
+//  Vul hier jouw melodieën in (of vraag mij om ze te maken)
+// ------------------------------------------------------------
+
+void beep_test_1()
+{
+    printf("Opwindende TopGun‑stijl starttune...\n");
+
+    // Intro: snelle stijgende synth‑aanloop
+    Beep(440, 120);   // A4
+    Beep(494, 120);   // B4
+    Beep(523, 150);   // C5
+    Beep(587, 150);   // D5
+    Sleep(80);
+
+    // Heroïsche sprong (klassieke fighter‑jet vibe)
+    Beep(784, 200);   // G5
+    Beep(880, 220);   // A5
+    Sleep(100);
+
+    // Snelle dubbele pulse (adrenaline)
+    Beep(988, 120);   // B5
+    Beep(988, 120);   // B5
+    Sleep(80);
+
+    // Spanningsopbouw
+    Beep(1046, 180);  // C6
+    Beep(1174, 180);  // D6
+    Sleep(100);
+
+    // Climax: krachtige finale
+    Beep(1318, 250);  // E6
+    Beep(1567, 300);  // G6
+    Beep(1760, 350);  // A6
+
+    // Einde: korte jet‑afterburner pulse
+    Sleep(120);
+    Beep(880, 180);   // A5
+}
+
+void beep_test_2()
+{
+    printf("Winst‑tune (Celebration‑stijl)...\n");
+
+    // Funky upbeat intro (C – E – G)
+    Beep(523, 150);   // C5
+    Beep(659, 150);   // E5
+    Beep(784, 200);   // G5
+    Sleep(80);
+
+    // Vrolijke hook (G – A – G – E)
+    Beep(784, 180);   // G5
+    Beep(880, 180);   // A5
+    Beep(784, 180);   // G5
+    Beep(659, 220);   // E5
+    Sleep(100);
+
+    // Funk‑riff (C – D – E – G)
+    Beep(523, 150);   // C5
+    Beep(587, 150);   // D5
+    Beep(659, 180);   // E5
+    Beep(784, 250);   // G5
+    Sleep(120);
+
+    // Finale "celebration hit"
+    Beep(1046, 300);  // C6
+    Beep(784, 250);   // G5
+    Beep(1046, 350);  // C6
+}
+
+void beep_test_3()
+{
+    printf("Nintendo‑stijl victory tune...\n");
+
+    // Snelle 8‑bit opening (C–E–G)
+    Beep(523, 120);   // C5
+    Beep(659, 120);   // E5
+    Beep(784, 150);   // G5
+    Sleep(60);
+
+    // Vrolijke sprong omhoog
+    Beep(988, 180);   // B5
+    Beep(1046, 200);  // C6
+    Sleep(80);
+
+    // Retro arpeggio (C6–E6–G6)
+    Beep(1046, 120);  // C6
+    Beep(1318, 120);  // E6
+    Beep(1567, 180);  // G6
+    Sleep(100);
+
+    // Finale "sparkle"
+    Beep(2093, 250);  // C7
+}
+
+void beep_test_4()
+{
+    printf("Russische dodenmars...\n");
+
+    // Lage baslijn (C – G – C)
+    Beep(130, 400);  // C3
+    Beep(98,  400);  // G2
+    Beep(130, 400);  // C3
+    Sleep(200);
+
+    // Donkere dalende frase (Eb – D – C)
+    Beep(155, 350);  // Eb3
+    Beep(146, 350);  // D3
+    Beep(130, 500);  // C3
+    Sleep(300);
+
+    // Slavische mineur sprong (G – Ab – G – F)
+    Beep(196, 350);  // G3
+    Beep(207, 350);  // Ab3
+    Beep(196, 350);  // G3
+    Beep(174, 500);  // F3
+    Sleep(300);
+
+    // Zware afsluitende cadens (Eb – C – G – C)
+    Beep(155, 400);  // Eb3
+    Beep(130, 400);  // C3
+    Beep(98,  400);  // G2
+    Beep(130, 700);  // C3
+}
+
+void beep_test_5()
+{
+    printf("RPG‑stijl victory tune...\n");
+
+    // Kleine fanfare opening (G – C – E)
+    Beep(784, 150);   // G5
+    Beep(1046, 180);  // C6
+    Beep(1318, 200);  // E6
+    Sleep(80);
+
+    // Heroïsche sprong omhoog
+    Beep(1567, 220);  // G6
+    Beep(1760, 240);  // A6
+    Sleep(100);
+
+    // Klassieke RPG arpeggio (C6–E6–G6)
+    Beep(1046, 120);  // C6
+    Beep(1318, 120);  // E6
+    Beep(1567, 180);  // G6
+    Sleep(80);
+
+    // Triomfantelijke afsluiter
+    Beep(2093, 300);  // C7
+}
+
+void beep_test_6()
+{
+    printf("Lange zachte exit‑suite...\n");
+
+    // Intro: warme daling
+    Beep(523, 200);   // C5
+    Beep(494, 200);   // B4
+    Beep(440, 250);   // A4
+    Sleep(80);
+
+    // Zachte echo
+    Beep(392, 220);   // G4
+    Beep(440, 180);   // A4
+    Beep(392, 220);   // G4
+    Sleep(120);
+
+    // Rustige middenpassage
+    Beep(349, 250);   // F4
+    Beep(330, 250);   // E4
+    Beep(392, 250);   // G4
+    Sleep(100);
+
+    // Kleine opwaartse glimlach
+    Beep(440, 200);   // A4
+    Beep(494, 200);   // B4
+    Beep(523, 250);   // C5
+    Sleep(120);
+
+    // Afsluitende fade‑out
+    Beep(392, 300);   // G4
+    Beep(330, 350);   // E4
+    Beep(261, 450);   // C4
+}
+
+void beep_test_7()
+{
+    printf("Arcade game‑over extended...\n");
+
+    // Klassieke retro daling
+    Beep(659, 150);   // E5
+    Beep(587, 150);   // D5
+    Beep(523, 180);   // C5
+    Sleep(80);
+
+    // Pixel‑echo
+    Beep(494, 150);   // B4
+    Beep(523, 150);   // C5
+    Beep(494, 150);   // B4
+    Sleep(100);
+
+    // 8‑bit tussenstuk
+    Beep(440, 180);   // A4
+    Beep(392, 180);   // G4
+    Beep(349, 200);   // F4
+    Sleep(80);
+
+    // Retro arpeggio
+    Beep(392, 150);   // G4
+    Beep(440, 150);   // A4
+    Beep(523, 180);   // C5
+    Sleep(120);
+
+    // Lage afsluiter (arcade‑style)
+    Beep(349, 250);   // F4
+    Beep(330, 300);   // E4
+    Beep(261, 450);   // C4
+}
+
+void beep_test_8()
+{
+    printf("Dramatische fade‑out finale...\n");
+
+    // Donkere intro
+    Beep(392, 220);   // G4
+    Beep(349, 250);   // F4
+    Beep(330, 280);   // E4
+    Sleep(120);
+
+    // Zware daling
+    Beep(294, 300);   // D4
+    Beep(261, 350);   // C4
+    Sleep(150);
+
+    // Middenstuk: langzaam wegzakkend
+    Beep(330, 200);   // E4
+    Beep(294, 220);   // D4
+    Beep(261, 250);   // C4
+    Sleep(150);
+
+    // Diepe fade‑out
+    Beep(220, 350);   // A3
+    Beep(196, 400);   // G3
+    Sleep(200);
+
+    // Laatste adem
+    Beep(174, 500);   // F3
+}
+
+void beep_test_9()
+{
+    printf("Error‑tone 1 (low–high)...\n");
+    Beep(300, 120);   // lage toon
+    Beep(450, 120);   // hogere toon
+}
+
+void beep_test_10()
+{
+    printf("Error‑tone 2 (high–low)...\n");
+   Beep_met_pauze(523, 175);
+            Beep_met_pauze(659, 175);
+            Beep_met_pauze(784, 175);
+            Beep_met_pauze(1046, 175);
+            Beep_met_pauze(988, 175);
+            Beep_met_pauze(880, 175);
+            Beep_met_pauze(784, 175);
+            Beep_met_pauze(659, 175);
+            Beep_met_pauze(1046, 175);
+            Beep_met_pauze(1318, 175);
+            Beep_met_pauze(1046, 175);
+            Beep_met_pauze(1046, 150);
+            Beep_met_pauze(1046, 150);
+            Beep_met_pauze(1046, 150);
+            BeBeep_met_pauzeep(1046, 150);
+            Beep_met_pauze(1046, 900);
+            Sleep(100);
+}
+
+
+// ------------------------------------------------------------
+//  MENU PRINTEN
+// ------------------------------------------------------------
+void toon_menu()
+{
+    printf("\n");
+    printf("=========================================\n");
+    printf("           BEEP TESTER  v1.0             \n");
+    printf("=========================================\n");
+    printf("Kies een test:\n\n");
+    printf("  1. Test 1\n");
+    printf("  2. Test 2\n");
+    printf("  3. Test 3\n");
+    printf("  4. Test 4\n");
+    printf("  5. Test 5\n");
+    printf("  6. Test 6\n");
+    printf("  7. Test 7\n");
+    printf("  8. Test 8\n");
+    printf("  9. Test 9\n");
+    printf(" 10. Test 10\n");
+    printf("  0. Afsluiten\n\n");
+    printf("Maak je keuze: ");
+}
+
+// ------------------------------------------------------------
+//  MAIN LOOP
+// ------------------------------------------------------------
+int main(void)
+{
+    SetConsoleOutputCP(CP_UTF8);
+
+    uint8_t keuze;
+
+    while (1)
+    {
+        toon_menu();
+
+        if (scanf("%hhu", &keuze) != 1)
+        {
+            printf("\033[31mOngeldige invoer!\033[0m\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
+        switch (keuze)
+        {
+            case 1:  beep_test_1(); break;
+            case 2:  beep_test_2(); break;
+            case 3:  beep_test_3(); break;
+            case 4:  beep_test_4(); break;
+            case 5:  beep_test_5(); break;
+            case 6:  beep_test_6(); break;
+            case 7:  beep_test_7(); break;
+            case 8:  beep_test_8(); break;
+            case 9:  beep_test_9(); break;
+            case 10: beep_test_10(); break;
+
+            case 0:
+                printf("\n\033[32mProgramma afgesloten.\033[0m\n");
+                return 0;
+
+            default:
+                printf("\033[31mDeze keuze bestaat niet!\033[0m\n");
+                break;
+        }
+
+        printf("\nDruk op ENTER om verder te gaan...");
+        while (getchar() != '\n');
+        getchar();
+    }
+
+    return 0;
+}
