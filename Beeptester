@@ -21,9 +21,9 @@ void beep_test_1()
     printf("Opwindende TopGun‑stijl starttune...\n");
 
     // Intro: snelle stijgende synth‑aanloop
-    Beep(430, 120);   // A4
-    Beep(594, 120);   // B4
-    Beep(523, 150);   // C5
+    Beep(440, 120);   // A4
+    Beep(494, 120);   // B4
+    Beep(423, 150);   // C5
     Beep(587, 150);   // D5
     Sleep(80);
 
