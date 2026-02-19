@@ -63,10 +63,10 @@ void beep_test_2()
     Sleep(80);
 
     // Vrolijke hook (G – A – G – E)
-    Beep(784, 180);   // G5
+    Beep(500, 654);   // G5
     Beep(880, 180);   // A5
     Beep(784, 180);   // G5
-    Beep(659, 220);   // E5
+    Beep(145, 654);   // E5
     Sleep(100);
 
     // Funk‑riff (C – D – E – G)
